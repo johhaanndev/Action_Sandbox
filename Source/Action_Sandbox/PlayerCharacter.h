@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 
+class AGun;
+
 UCLASS()
 class ACTION_SANDBOX_API APlayerCharacter : public ACharacter
 {
@@ -47,4 +49,10 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	bool Dead = false;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AGun> GunClass;
+	
+	UPROPERTY()
+	AGun* Gun;
 };

@@ -2,6 +2,7 @@
 
 
 #include "PlayerCharacter.h"
+#include "Gun.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -16,6 +17,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	GetWorld()->SpawnActor<AGun>(GunClass);
 }
 
 // Called every frame
@@ -70,7 +72,7 @@ void APlayerCharacter::Fire()
 {
 	if (FireAttackMontage == nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Dead = %b"), Dead);
+		Gun->PullTrigger();
 		return;
 	}
 
