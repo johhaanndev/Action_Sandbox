@@ -17,7 +17,9 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetWorld()->SpawnActor<AGun>(GunClass);
+	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+	Gun->SetOwner(this);
 }
 
 // Called every frame
@@ -72,10 +74,10 @@ void APlayerCharacter::Fire()
 {
 	if (FireAttackMontage == nullptr)
 	{
-		Gun->PullTrigger();
 		return;
 	}
 
+	Gun->PullTrigger(GetMesh());
 	PlayAnimMontage(FireAttackMontage);
 }
 

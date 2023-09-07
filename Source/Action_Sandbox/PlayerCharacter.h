@@ -50,7 +50,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	bool Dead = false;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AGun> GunClass;
 	
 	UPROPERTY()

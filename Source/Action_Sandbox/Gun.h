@@ -23,10 +23,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void PullTrigger();
+	void PullTrigger(USceneComponent* Mesh);
 
 private:
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* Root;
+
+	UPROPERTY(EditAnywhere)
+	UParticleSystem* MuzzleFlash;
 
 };
