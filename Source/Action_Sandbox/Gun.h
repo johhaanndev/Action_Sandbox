@@ -41,6 +41,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float MaxRange = 1000.f;
 
+	UPROPERTY(EditAnywhere)
+	float Spread = 5.f;
+
 	bool GunTraceSuccess(FHitResult& Hit, FVector& ShotDirection);
 	AController* GetOwnerController() const;
 };
